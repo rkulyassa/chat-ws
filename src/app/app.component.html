@@ -1,0 +1,14 @@
+<div>
+  <h2>Chat App</h2>
+  <input type="text" [(ngModel)]="inputUsername" placeholder="Enter username">
+  <input type="text" [(ngModel)]="inputMessage" (keyup.enter)="sendMessage()" placeholder="Type a message...">
+  <button (click)="sendMessage()">Send</button>
+
+  <ul>
+    <li *ngFor="let msg of messageQueue.getMessagesToRender()">
+      <span class="timestamp">{{ msg.timestamp }}</span>
+      <span class="username">{{ msg.username }}:</span>
+      <span class="messageText">{{ msg.text }}</span>
+    </li>
+  </ul>
+</div>
